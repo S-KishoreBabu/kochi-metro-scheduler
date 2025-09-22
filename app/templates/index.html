@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kochi Metro | Daily Schedule Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="tab-container">
+        <div class="tab-nav">
+            <!-- <div class="logo">
+                <img
+            </div> -->
+            <button class="tab-button active" onclick="openTab('gridView')">Grid View</button>
+            <button class="tab-button" onclick="openTab('tableView')">Table View</button>
+            <button class="tab-button" onclick="openTab('depotView')">Depot Position</button>
+            <button class="tab-button" onclick="openTab('brandingView')">Branding Details</button>
+            <button class="tab-button" onclick="openTab('suitabilityView')">Suitability Level</button>
+            <button class="tab-button" onclick="openTab('historyView')">History</button>
+        </div>
+
+        <div id="gridView" class="tab-content active">
+            <h2>Eligibility Status Grid</h2>
+            <div id="eligibilityGridContainer" class="grid-container">
+                </div>
+        </div>
+
+        <div id="tableView" class="tab-content">
+            <h2>Ranked Schedule Table</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Train ID</th>
+                        <th>Brand Score</th>
+                        <th>Mileage</th>
+                        <th>Shunting Cost</th>
+                        <th>Suitability Score</th>
+                        <th>Reason ⓘ</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleTableBody"></tbody>
+            </table>
+        </div>
+
+        <div id="brandingView" class="tab-content">
+            <h2>Branding Contract Details</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Train ID</th>
+                        <th>Branding Type</th>
+                        <th>Total Hours Required</th>
+                        <th>Hours Accomplished</th>
+                        <th>Brand Score (0-1)</th>
+                    </tr>
+                </thead>
+                <tbody id="brandingTableBody"></tbody>
+            </table>
+        </div>
+
+        <div id="suitabilityView" class="tab-content">
+            <h2>Suitability Score Grid</h2>
+            <div id="suitabilityGridContainer" class="grid-container">
+                </div>
+        </div>
+
+        <div id="depotView" class="tab-content">
+            <h2>Depot Bay Positions</h2>
+            <p><i>(This feature will be implemented later.)</i></p>
+            <div id="depotGridContainer" class="grid-container"></div>
+        </div>
+        <div id="historyView" class="tab-content">
+            <h2>Schedule History</h2>
+            <div class="history-controls">
+                <label for="historyDate">Select a Date:</label>
+                <input type="date" id="historyDate">
+                <button id="fetchHistoryBtn">Get History</button>
+            </div>
+            <div id="historyMessage"></div>
+            <table class="schedule-table" id="historyTable" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Train ID</th>
+                        <th>Suitability Score</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
