@@ -43,7 +43,7 @@ The application is built on a classic three-tier architecture:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [<your-repo-url>](https://github.com/S-KishoreBabu/kochi-metro-scheduler.git)
+    git clone (https://github.com/S-KishoreBabu/kochi-metro-scheduler.git)
     cd kochi_metro_scheduler
     ```
 
